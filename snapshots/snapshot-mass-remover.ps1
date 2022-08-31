@@ -9,7 +9,10 @@
    snapshot-mass-remover.ps1 <subscription> <resource group> <file route>
 #>
 
+# Arguments asigned to variables:
+# Subscription
 $sub=$args[0]
+# Resource Group
 $rg=$args[1]
 $file = Get-Content -Path $args[2]
 
