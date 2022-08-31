@@ -14,10 +14,21 @@
 $sub=$args[0]
 # Resource Group
 $rg=$args[1]
+# File containing the item list
 $file = Get-Content -Path $args[2]
 
-az account set --subscription "$sub"
-foreach ($lines in $file){
-    az snapshot delete --resource-group "$rg" --name "$lines"
-    Write-Host "Deleted $lines in $rg ($sub)"
+try{
+# We set AZ Subscription context
+    az account set --subscription "$sub"
+
+    # We iterate through the file
+    foreach ($lines in $file){
+        az snapshot delete --resource-group "$rg" --name "$lines"
+        Write-Host "Deleted $lines in $rg ($sub)"
+    }
+}
+catch {
+    $message = $_.Exception.message
+    $error_type = $_.Exception.GetType()
+    Write-Output "$error_type : $message"
 }
