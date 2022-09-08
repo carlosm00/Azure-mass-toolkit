@@ -4,6 +4,7 @@ This is a collection of scripts written in PowerShell for simple, but commonly n
 The list of scripts and their use is listed below:
 
 * snapshot-mass-remover - For removing snapshots listed on a file.
+* disk-mass-exist - For checking disk existence listed on a file.
 
 ## How to use
 These scripts should be used after login on your Azure Tenant on the terminal. Manually adding the login step on these scripts is possible and will save you time on the execution of the scripts, but is not advised as the use of over automation for mass-item updates or removal on your cloud environment is highly critical and may lead to an enormous error.
